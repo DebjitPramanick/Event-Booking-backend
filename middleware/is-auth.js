@@ -20,6 +20,7 @@ module.exports = (req, res, next) => {
     }
     catch (err) {
         req.isAuth = false
+        console.log(err)
         return next()
     }
 

@@ -86,10 +86,10 @@ const Query = new GraphQLObjectType({
         bookings: {
             type: new GraphQLList(Types.BookingType),
             args: {
-                id: { type: GraphQLID }
+                userId: { type: GraphQLID }
             },
             async resolve(parent, args) {
-                let res = await Booking.find({})
+                let res = await Booking.find({user: args.userId})
                 .then(res => res)
                 .catch(err => "Error occured.")
                 return res
